@@ -1,0 +1,9 @@
+@inproceedings{corsa,
+ author = {Boos, Kevin and Amiri Sani, Ardaland and Zhong, Lin},
+ title = {Eliminating State Entanglement with Checkpoint-based Virtualization
+of Mobile OS Services},
+ booktitle = {Proceedings of the 6th ACM SIGOPS Asia-Pacific Workshop on Systems},
+ series = {APSys '15},
+ year = {2015},
+ location = {Tokyo, Japan}
+} 
