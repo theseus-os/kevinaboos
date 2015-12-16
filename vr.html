@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 3.0 License
+
+Name       : Axiom
+Description: A two-column, fixed-width design with a bright color scheme.
+Version    : 1.0
+Released   : 2012/07/29
+
+Content written and copyrighted by Kevin Boos, 2013.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<title>Kevin Boos, Ph.D. Student</title>
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="style.css" />
+	</head>
+	<body>
+		<div id="wrapper">
+			<!--#include virtual="common/header.html" -->
+			<div id="inner">
+				<div id="page">
+					<div id="content">
+						<div class="box">
+							<h2>FlashBack Homepage</h2>
+							Welcome to the homepage for FlashBack, a mobile VR solution that uses aggressive rendering memoization to bring full-quality VR experiences to weak mobile devices.
+							<br><br>
+							FlashBack is currently under submission to MobiSys 2016, so we kindly ask that you refrain from sharing or otherwise distributing any material on this page. Please return for additional details after the MobiSys notification deadline in March. Thanks!
+							<br><br>
+							Please enjoy the following videos demonstrating the performance of FlashBack.
+							Note that the black regions on the sides of the Oculus screen during local execution are due to the attempted correction for the lack of new frames for the latest head pose. This occurs when frames are not generated quickly enough and the previous frame is reused, a common occurrence during local execution.
+							<br><br><br>
+
+							<h3>High-quality Static Scene: Viking Village</h3>
+							As discussed in the paper, we use <a href="https://www.assetstore.unity3d.com/en/#!/content/29140">Viking Village</a> from the Unity Asset Store as our high-quality test scene. The screenshots below show what the starting point of Viking Village looks like on both a normal PC view (left) and through the Oculus Rift (right). <br><br> 
+							<a href="flashback/vv_normal.png"><img style="float: left; margin-right: 2%" src="flashback/vv_normal.png" height="240" /></a>
+							<a href="flashback/vv_oculus.png"><img style="float: left;" src="flashback/vv_oculus.png" height="240" /></a>
+							<p style="clear: both;">
+							<br>
+							In the following video, locally executing Viking Village results in a severely reduced framerate, making it unviewable at less than 9 FPS. FlashBack presents the same scene smoothly despite its high graphic complexity.<br><br>
+							<iframe src="https://drive.google.com/file/d/0B6_MB6G_BSCSMUVKS0JWUkozQkE/preview" width="848" height="477"></iframe>
+
+
+							<br><br><br>
+							<h3>Dynamic Objects</h3>
+							In the following video, locally executing even a simple scene with two dynamic objects causes another unpleasant viewing experience, with an average framerate of 18 FPS. FlashBack maintains a high framerate even with multiple independent dynamic objects. <br>
+							Note that the animated horse cart and bird are animated such that they intentionally disappear from the screen and loop back to their original off-screen starting position, so this is expected behavior. <br><br>
+							<iframe src="https://drive.google.com/file/d/0B6_MB6G_BSCSQ21VSVE2ajlMZ28/preview" width="848" height="477"></iframe>
+							<br>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--#include virtual="common/footer.html" -->
+	</body>
+</html>
