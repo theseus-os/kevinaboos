@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 3.0 License
+
+Name       : Axiom
+Description: A two-column, fixed-width design with a bright color scheme.
+Version    : 1.0
+Released   : 2012/07/29
+
+Content written and copyrighted by Kevin Boos, 2013.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<title>Fridge Room </title>
+	</head>
+	<body>
+		
+		<script> 
+		
+		
+		function receivedBalance(responseText) {
+			var user = responseText.split(":")[0];
+			var balance = parseFloat(responseText.split(":")[1]);
+
+			// first check for errors from the google apps balance script
+			if ((user.indexOf("error") !== -1) || isNaN(balance) || (balance == -999)) {
+				document.write("Your purchase was logged correctly, but your balance could not be retrieved due to a temporary error with Google Apps Scripts.<br><br>");
+			}
+			// here: no errors
+			else {
+				document.write(user + "'s current balance is <b>$" + balance.toFixed(2) + ".</b><br>");
+				if (balance < 2.0) {
+					document.write("<br><b>Please make a deposit soon!</b><br>");
+				}
+			}
+
+			document.write("<br><br> The page will automatically return to the purchase form in a few seconds.");
+			// wait 6 seconds, then refresh the page to return to start of form
+			setTimeout(
+				function () {
+					window.top.location.reload();
+				}, 
+				6000); // wait 6 seconds then automatically return to form
+		}
+
+
+		var hasBeenSubmitted = false;
+		function onIFrameLoad() {
+			if (hasBeenSubmitted) {
+				// ask google sheets for the balance of the user who just submitted the transaction
+				// I wrote a script for this, it's under the spreadsheet's doGet() function
+
+				var xmlHttp = new XMLHttpRequest();
+				
+				// establish an async callback for the GET request's response
+				xmlHttp.onreadystatechange = function() { 
+					if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+						receivedBalance(xmlHttp.responseText);
+				}
+				// this giant URL was copied from the Fridge Room Scripts when published as a web app
+				// maybe can be prefaced with "http://cors.io/?u=" to get around no 'access-control-allow-origin' header error???
+				xmlHttp.open("GET", "https://script.google.com/macros/s/AKfycbzg4I3jse6mUXmszs3xIo1EskDIJJiQXbHLm7PRdYqr8eR_fGQ/exec", true); 
+				xmlHttp.send(null);
+			}
+
+			// quick hack so that we only ask for the balance after the user has submitted the purchase form (that is, on the second iframe load event), not before they have submitted it (when the form first loads). Probably a better way to do this, but oh well.
+			hasBeenSubmitted = true; 
+		};
+
+		</script>
+
+		<iframe id="googleForm" src="https://docs.google.com/forms/d/e/1FAIpQLSc1zQYL_u2FFUvTCAsraaaCUGKeSX9ATZXZtCpLcrxUfsIdAg/viewform?embedded=true" style="position:absolute; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;" onload="onIFrameLoad(this)" onunload="onIFrameUnload(this)">
+		    Your browser doesn't support iframes!!
+		</iframe>	
+	</body>
+</html>

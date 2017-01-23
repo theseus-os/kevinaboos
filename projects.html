@@ -48,9 +48,9 @@ Content written and copyrighted by Kevin Boos, 2013.
 							<h2>Scheduler-aware Interrupt Coalescing on Xen</h2>
 							<ul class="list">
 								<li>
-									Interrupt coalescing is an excellent way to reduce the CPU overhead of delivering interrupts in a virtualized environment. Unfortunately, software interrupt coalescing is wholly absent from the Xen VMM. This project adds traditional coalescing to Xen in the style of VMware's vIC paper, which improves throughput at the cost of increased latency. We reduce this latency increase and even improve throughput by adding <i> scheduler awareness</i> to the coalescing algorithm, enabling the driver domain (dom0) avoid delivering coalesced interrupts to guest domains at inopportune times. 
+									Interrupt coalescing is an excellent way to reduce the CPU overhead of delivering interrupts to guests in a virtualized environment. Unfortunately, software interrupt coalescing is wholly absent from the Xen VMM. This project adds traditional coalescing to Xen in the style of VMware's vIC paper, which improves throughput at the cost of increased latency. We reduce this latency increase and even improve throughput by adding <i> scheduler awareness</i> to the coalescing algorithm, enabling the driver domain (dom0) avoid delivering coalesced interrupts to guest domains at inopportune times. 
 								</li>
-								<li> Project Report: <a href="docs/interrupt-coalescing-paper.pdf">PDF</a>  &nbsp; &nbsp; Slides: <a href="docs/interrupt-coalescing-presentation.pdf">PDF</a> <br>
+								<li> Technical Report: <a href="docs/interrupt-coalescing-paper.pdf">PDF</a>  &nbsp; &nbsp; Slides: <a href="docs/interrupt-coalescing-presentation.pdf">PDF</a> <br>
 								Hypervisor source repository: <a href="https://github.com/mongoose700/xen-coalesce">GitHub</a> <br>
 								Driver Domain (dom0) kernel source repository: <a href="https://github.com/mongoose700/xen-coalesce-kernel">GitHub</a>
 								</li>
