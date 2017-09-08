@@ -29,11 +29,11 @@ Content written and copyrighted by Kevin Boos, 2013.
 
 			// first check for errors from the google apps balance script
 			if ((user.indexOf("error") !== -1) || isNaN(balance) || (balance == -999)) {
-				document.write("Your purchase was logged correctly, but your balance could not be retrieved due to a temporary error with Google Apps Scripts.<br><br>");
+				document.write("Your purchase went through just fine, but your balance is taking too long to calculate because of Google Apps delays.<br><br>");
 			}
 			// here: no errors
 			else {
-				document.write(user + "'s current balance is <b>$" + balance.toFixed(2) + ".</b><br>");
+				document.write(user + "'s balance is <b>$" + balance.toFixed(2) + ".</b><br>");
 				if (balance < 2.0) {
 					document.write("<br><b>Please make a deposit soon!</b><br>");
 				}
