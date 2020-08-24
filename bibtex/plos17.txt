@@ -1,0 +1,17 @@
+@inproceedings{boos_plos17,
+ author = {Boos, Kevin and Zhong, Lin},
+ title = {Theseus: A State Spill-free Operating System},
+ booktitle = {Proceedings of the 9th Workshop on Programming Languages and Operating Systems},
+ series = {PLOS'17},
+ year = {2017},
+ isbn = {978-1-4503-5153-9},
+ location = {Shanghai, China},
+ pages = {29--35},
+ numpages = {7},
+ url = {http://doi.acm.org/10.1145/3144555.3144560},
+ doi = {10.1145/3144555.3144560},
+ acmid = {3144560},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+} 
+
